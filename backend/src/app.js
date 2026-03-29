@@ -3,7 +3,12 @@ const cors = require("cors");
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: "*", // Allows any frontend URL to connect
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // explicitly whitelist methods
+  allowedHeaders: ["Content-Type", "Authorization"]
+}));
+app.options('*', cors()); // EXPLICITLY handle pre-flight OPTIONS requests
 app.use(express.json());
 
 
