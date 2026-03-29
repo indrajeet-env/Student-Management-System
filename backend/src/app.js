@@ -8,9 +8,7 @@ app.use(cors({
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // explicitly whitelist methods
   allowedHeaders: ["Content-Type", "Authorization"]
 }));
-app.options('*', cors()); // EXPLICITLY handle pre-flight OPTIONS requests
 app.use(express.json());
-
 
 // Routes
 const authRoutes = require("./routes/auth.routes");
