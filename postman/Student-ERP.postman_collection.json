@@ -1,0 +1,340 @@
+{
+  "info": {
+    "_postman_id": "cdcf0e1e-5803-4fbc-bccc-53912ceb778f",
+    "name": "Student-ERP",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "43603862",
+    "_collection_link": "https://go.postman.co/collection/43603862-cdcf0e1e-5803-4fbc-bccc-53912ceb778f?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Nigga\",\n  \"email\": \"nigga@gmail.com\",\n  \"password\": \"123456\",\n  \"role\": \"student\",\n  \"branch\": \"AIDS\",\n  \"year\": 2,\n  \"rollNumber\": \"69\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5001/api/auth/register",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5001",
+              "path": [
+                "api",
+                "auth",
+                "register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "User Details",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OWM5MzkyNWM1YWQwYjA0ZDhhN2NhNzIiLCJyb2xlIjoic3R1ZGVudCIsImlhdCI6MTc3NDgwMDU2NiwiZXhwIjoxNzc0ODg2OTY2fQ.XvcXWFv3hqRzhxA4-AGKTRDS4s-I9KjnY4UR_plECcc",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5001/api/auth/me",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5001",
+              "path": [
+                "api",
+                "auth",
+                "me"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"admin@gmail.com\",\n  \"password\": \"123456\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5001/api/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5001",
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Admin-Side",
+      "item": [
+        {
+          "name": "Get  monthly attendance of any student, from its id for admin only",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OWM5NDNkM2JlZTYyMjIxZDRmZjIxYTMiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NzQ4MDM4OTIsImV4cCI6MTc3NDg5MDI5Mn0.R3z5NKaXp0ZL0ZxzyIYoHmI9_IgxCcyiIT_ZZFbtY_8",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5001/api/admin/attendance/69c93925c5ad0b04d8a7ca72/monthly?month=3&year=2026",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5001",
+              "path": [
+                "api",
+                "admin",
+                "attendance",
+                "69c93925c5ad0b04d8a7ca72",
+                "monthly"
+              ],
+              "query": [
+                {
+                  "key": "month",
+                  "value": "3"
+                },
+                {
+                  "key": "year",
+                  "value": "2026"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get any students attendance data via its id, for admin only",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OWM5NDNkM2JlZTYyMjIxZDRmZjIxYTMiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NzQ4MDM4OTIsImV4cCI6MTc3NDg5MDI5Mn0.R3z5NKaXp0ZL0ZxzyIYoHmI9_IgxCcyiIT_ZZFbtY_8",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5001/api/admin/attendance/69c93925c5ad0b04d8a7ca72",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5001",
+              "path": [
+                "api",
+                "admin",
+                "attendance",
+                "69c93925c5ad0b04d8a7ca72"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get all sudents info for admin only",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OWM5NDNkM2JlZTYyMjIxZDRmZjIxYTMiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NzQ4MDM3OTIsImV4cCI6MTc3NDg5MDE5Mn0.VJTUmfkDMuTr7sxm6EWMSrt-_DMgz6s22wjaXs2mHFE",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5001/api/admin/students",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5001",
+              "path": [
+                "api",
+                "admin",
+                "students"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Attendance",
+      "item": [
+        {
+          "name": "Mark a student present/absent, can only be marked by admin, when he is logged in",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OWM5NDNkM2JlZTYyMjIxZDRmZjIxYTMiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NzQ4MDMxNjgsImV4cCI6MTc3NDg4OTU2OH0.AJEzo__sSchedO_s4yt1KVMgohHiVqrpPU9POZg4_X8",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"studentId\": \"69c9581f9422da86bfbfc16c\",\n  \"status\": \"absent\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5001/api/attendance",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5001",
+              "path": [
+                "api",
+                "attendance"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get today's attendance detail of a particular student",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OWM5NTgxZjk0MjJkYTg2YmZiZmMxNmMiLCJyb2xlIjoic3R1ZGVudCIsImlhdCI6MTc3NDgwMzU4NSwiZXhwIjoxNzc0ODg5OTg1fQ.Z-DQ0g3c563KKzpXPh93M67NnzptMt9oPTIGHPyABxY",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5001/api/attendance/me",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5001",
+              "path": [
+                "api",
+                "attendance",
+                "me"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get monthly attendance of a particular student",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OWM5NTgxZjk0MjJkYTg2YmZiZmMxNmMiLCJyb2xlIjoic3R1ZGVudCIsImlhdCI6MTc3NDgwMzU4NSwiZXhwIjoxNzc0ODg5OTg1fQ.Z-DQ0g3c563KKzpXPh93M67NnzptMt9oPTIGHPyABxY",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5001/api/attendance/monthly?month=3&year=2026",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5001",
+              "path": [
+                "api",
+                "attendance",
+                "monthly"
+              ],
+              "query": [
+                {
+                  "key": "month",
+                  "value": "3"
+                },
+                {
+                  "key": "year",
+                  "value": "2026"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
