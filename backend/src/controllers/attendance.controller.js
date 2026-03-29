@@ -1,4 +1,5 @@
 const Attendance = require("../models/attendance.model");
+const userModel = require("../models/user.model");
 
 // Admin marks attendance
 async function markAttendance(req, res) {
